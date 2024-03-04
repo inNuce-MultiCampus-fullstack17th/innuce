@@ -220,7 +220,7 @@ $('main i').on('click',function(){
 				url : 'scrapnewscancel',
 				data : {'user_id' : user_id, 'news_key' : $(this).attr('news')},
 				success : function(response){
-					/*alert("스크랩이 취소 됐습니다")*/
+					alert("스크랩이 취소 됐습니다")
 					
 				}//success
 			})//ajax
@@ -237,7 +237,7 @@ $('main i').on('click',function(){
 					url : 'scrapnews',
 					data : {'user_id' : user_id, 'news_key' : $(this).attr('news')},
 					success : function(response){
-						/*alert("스크랩이 완료 됐습니다")*/
+						alert("스크랩이 완료 됐습니다")
 						
 					}//success
 				})//ajax

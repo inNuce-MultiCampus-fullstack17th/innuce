@@ -13,8 +13,7 @@
 <link rel="stylesheet" type="text/css" href="/css/mypage.css">
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script defer src="/js/searchPage.js"></script>
-<script defer src="/js/etc.js"></script>
+<script defer src="/js/main.js"></script>
 </head>
 <body>
 <script>

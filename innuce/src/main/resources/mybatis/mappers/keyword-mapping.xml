@@ -111,7 +111,7 @@
 	<!-- wordCloud -->
 	<select id="getCategoryContent" resultType="String" parameterType="String">
 		select news_content from news where news_category=#{category } 
-		<!-- and news_writendate &gt;= date_add(now(), interval -1 day) -->
+		and news_writendate &gt;= date_add(now(), interval -1 day)
 		order by news_writendate
 		limit 500
 	</select>

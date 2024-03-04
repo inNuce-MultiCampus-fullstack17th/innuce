@@ -24,35 +24,37 @@ import org.springframework.stereotype.Service;
 @Service
 public class SentimentService {
 
+
 	private String clientId;
 	private String clientSecret;
 
 	// 싱글톤으로 관리되는 객체가 생성될 때 파일을 읽어서 기본 세팅값 설정
 	public SentimentService() {
-
-		try {
-			String os = System.getProperty("os.name").toLowerCase();
-			String url = "";
-
-			if (os.contains("win")) {
-				url = "c:/fullstack/naverinform.properties";
-			} else {
-				url = "/usr/properties/naverinform.properties";
-			}
-
-			InputStream is = new FileInputStream(new File(url));
-			Properties props = new Properties();
-			
-			props.load(is);
-			this.clientId = props.getProperty("naverClientID");
-			this.clientSecret = props.getProperty("naverClientSecret");
-		} catch (FileNotFoundException e) {
-			System.out.println("naverinform file이 없습니다.");
-			e.printStackTrace();
-		} catch (IOException e) {
-			System.out.println("SentimentService ERROR!");
-			e.printStackTrace();
-		}
+		super();
+//
+//		try {
+//			String os = System.getProperty("os.name").toLowerCase();
+//			String url = "";
+//
+//			if (os.contains("win")) {
+//				url = "c:/fullstack/naverinform.properties";
+//			} else {
+//				url = "/home/ec2-user/properties/naverinform.properties";
+//			}
+//
+//			InputStream is = new FileInputStream(new File(url));
+//			Properties props = new Properties();
+//			
+//			props.load(is);
+//			this.clientId = props.getProperty("naverClientID");
+//			this.clientSecret = props.getProperty("naverClientSecret");
+//		} catch (FileNotFoundException e) {
+//			System.out.println("naverinform file이 없습니다.");
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			System.out.println("SentimentService ERROR!");
+//			e.printStackTrace();
+//		}
 
 	}
 

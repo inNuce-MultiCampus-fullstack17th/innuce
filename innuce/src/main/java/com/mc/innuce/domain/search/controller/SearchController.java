@@ -38,7 +38,6 @@ import kr.co.shineware.nlp.komoran.model.KomoranResult;
 @Controller
 public class SearchController {
 
-//	private Komoran komoran = new Komoran(DEFAULT_MODEL.FULL);
 
 	@Autowired
 	private GeolocationService geoService;
@@ -54,9 +53,8 @@ public class SearchController {
 
 	private List<String> placeList = new ArrayList<>();
 
-	@RequestMapping("/main")
-	public ModelAndView main(HttpServletRequest request, HttpSession session) {
-
+	@RequestMapping(value={"/","/main"})
+	public ModelAndView main() {
 		List<String> keywordKey = newsService.getKeywordNews2();
 		ModelAndView mv = new ModelAndView();
 
@@ -284,12 +282,9 @@ public class SearchController {
 			@RequestParam(value = "pageNum", required = false, defaultValue = "1") int pageNum) throws Exception {
 
 		System.out.println("first location : " + location);
-		String ip = "";
+		String ip = getIp(request);
 		ModelAndView mv = new ModelAndView();
 
-		if (ip.equals("") || ip.equals(" ") || ip == null) {
-			ip = getIp(request);
-		}
 
 		if (myLocation.equals("")) {
 			location = geoService.test(ip);
@@ -357,22 +352,20 @@ public class SearchController {
 				keywordKeyList.add(dto.getKeyword_key());
 				keywordKey = dto.getKeyword_key();
 
-				System.out.println("news_key : " + service.getNewsKeys2(place));
-
-				KeysDTO keys = new KeysDTO(keywordKey, service.getNewsKeys2(place));
-
-				service.insertKeywordNews(keys);
 			}
+			System.out.println("news_key : " + service.getNewsKeys2(place));
+			
+			KeysDTO keys = new KeysDTO(keywordKey, service.getNewsKeys2(place));
+			
+			service.insertKeywordNews(keys);
 
+			
 			totalCount += service.getTotalNews(keywordKey);
 
 		} // for (String place : analyzeList)
 
 //	paging
 
-		if (totalCount >= 250) {
-			totalCount = 250;
-		}
 		PageMaker pageMaker = new PageMaker(pageNum, totalCount);
 
 		Map<String, Object> map = new HashMap<>();

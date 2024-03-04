@@ -18,6 +18,8 @@
 
 <script defer src="/js/searchPage.js"></script>
 
+
+
 </head>
 <body>
 <!-- HEADER -->

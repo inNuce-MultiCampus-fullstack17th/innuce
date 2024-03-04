@@ -428,7 +428,14 @@ public class CrawlingNewsService {
 					}
 					break ;
 				} catch (Exception e) {
+					
+					System.out.println("insertNewsFromVO error" + voList.get(i).getUrl()); 
 					System.out.println("insertNewsFromVO error");
+				// need delete this!
+          if (voList.get(i).getUrl().equals("https://n.news.naver.com/mnews/article/008/0005004100")) {
+              System.out.println(printColor("CATCH ERROR PAGE", "red"));
+              voList.remove(i--);
+          }
 					e.printStackTrace();
 					driver.quit();
 					driver = WebDriverPool.createNewWebDriver();

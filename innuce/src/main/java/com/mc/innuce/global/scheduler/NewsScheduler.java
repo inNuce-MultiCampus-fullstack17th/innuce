@@ -18,10 +18,10 @@ public class NewsScheduler {
     @Autowired
     WebDriverPool pool;
 
-//    private boolean isCategoryCrawlerRunning = true; // default false !
-//    private boolean isHeadlineCrawlerRunning = true; // default false !
-    private boolean isCategoryCrawlerRunning = false; // default false !
-    private boolean isHeadlineCrawlerRunning = false; // default false !
+    private boolean isCategoryCrawlerRunning = true; // default false !
+    private boolean isHeadlineCrawlerRunning = true; // default false !
+//    private boolean isCategoryCrawlerRunning = false; // default false !
+//    private boolean isHeadlineCrawlerRunning = false; // default false !
 
     public static int categoryCrawlerCallCount = 0;
     public static int headlineCrawlerCallCount = 0;
